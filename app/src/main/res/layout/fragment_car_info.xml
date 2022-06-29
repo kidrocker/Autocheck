@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detail"
+            type="ke.kiura.autocheck.data.models.detail.Detail" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="0dp"
+        tools:context=".ui.detail.tabs.CarInfoFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp">
+
+
+                <TextView
+                    android:id="@+id/costTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Cost:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/costTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/costTitle"
+                    app:layout_constraintStart_toEndOf="@id/costTitle"
+                    app:layout_constraintTop_toTopOf="@id/costTitle"
+                    app:money="@{detail.marketplacePrice.toString()}" />
+
+
+                <TextView
+                    android:id="@+id/oldPriceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Old Price:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/costTitle" />
+
+                <TextView
+                    android:id="@+id/oldPriceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/oldPriceTitle"
+                    app:layout_constraintStart_toEndOf="@id/oldPriceTitle"
+                    app:layout_constraintTop_toTopOf="@id/oldPriceTitle"
+                    app:money="@{detail.marketplaceOldPrice.toString()}" />
+
+
+                <TextView
+                    android:id="@+id/milageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Milage:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/oldPriceTitle" />
+
+                <TextView
+                    android:id="@+id/milageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.mileage+ ` `+detail.mileageUnit}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/milageTitle"
+                    app:layout_constraintStart_toEndOf="@id/milageTitle"
+                    app:layout_constraintTop_toTopOf="@id/milageTitle" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/milageText" />
+
+                <TextView
+                    android:id="@+id/bodyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Body:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                <TextView
+                    android:id="@+id/bodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.bodyType.name}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/bodyTitle"
+                    app:layout_constraintStart_toEndOf="@id/bodyTitle"
+                    app:layout_constraintTop_toTopOf="@+id/bodyTitle" />
+
+                <TextView
+                    android:id="@+id/modelTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Model:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bodyTitle" />
+
+                <TextView
+                    android:id="@+id/modelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.model.name}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/modelTitle"
+                    app:layout_constraintStart_toEndOf="@id/modelTitle"
+                    app:layout_constraintTop_toTopOf="@+id/modelTitle" />
+
+
+                <TextView
+                    android:id="@+id/engineTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Engine:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/modelTitle" />
+
+                <TextView
+                    android:id="@+id/engineText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.engineType}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/engineTitle"
+                    app:layout_constraintStart_toEndOf="@id/engineTitle"
+                    app:layout_constraintTop_toTopOf="@+id/engineTitle" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/engineText" />
+
+                <TextView
+                    android:id="@+id/vinTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Vin:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+                <TextView
+                    android:id="@+id/vinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.vin}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/vinTitle"
+                    app:layout_constraintStart_toEndOf="@id/vinTitle"
+                    app:layout_constraintTop_toTopOf="@+id/vinTitle" />
+
+                <TextView
+                    android:id="@+id/yearTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Year:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vinTitle" />
+
+                <TextView
+                    android:id="@+id/yearText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{detail.year.toString()}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/yearTitle"
+                    app:layout_constraintStart_toEndOf="@id/yearTitle"
+                    app:layout_constraintTop_toTopOf="@+id/yearTitle" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/yearTitle" />
+
+                <TextView
+                    android:id="@+id/warrantyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Warranty:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+                <TextView
+                    android:id="@+id/warrantyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/warrantyTitle"
+                    app:layout_constraintStart_toEndOf="@id/warrantyTitle"
+                    app:layout_constraintTop_toTopOf="@id/warrantyTitle"
+                    app:text="@{detail.hasWarranty.toString()}" />
+
+                <TextView
+                    android:id="@+id/financingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Financing:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/warrantyTitle" />
+
+                <TextView
+                    android:id="@+id/financingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/financingTitle"
+                    app:layout_constraintStart_toEndOf="@id/financingTitle"
+                    app:layout_constraintTop_toTopOf="@id/financingTitle"
+                    app:text="@{detail.hasFinancing.toString()}" />
+
+                <TextView
+                    android:id="@+id/installmentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Financing:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/financingTitle" />
+
+                <TextView
+                    android:id="@+id/installmentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/installmentTitle"
+                    app:layout_constraintStart_toEndOf="@id/installmentTitle"
+                    app:layout_constraintTop_toTopOf="@id/installmentTitle"
+                    app:text="@{detail.installment.toString()}" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</layout>

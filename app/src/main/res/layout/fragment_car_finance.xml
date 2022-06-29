@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="detail"
+            type="ke.kiura.autocheck.data.models.detail.Detail" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.tabs.CarFinanceFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/warrantyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Warranty:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/warrantyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/warrantyTitle"
+                    app:layout_constraintStart_toEndOf="@id/warrantyTitle"
+                    app:layout_constraintTop_toTopOf="@id/warrantyTitle"
+                    app:money="@{detail.hasWarranty.toString()}" />
+
+                <TextView
+                    android:id="@+id/financingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Financing:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/warrantyTitle" />
+
+                <TextView
+                    android:id="@+id/financingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/financingTitle"
+                    app:layout_constraintStart_toEndOf="@id/financingTitle"
+                    app:layout_constraintTop_toTopOf="@id/financingTitle"
+                    app:money="@{detail.hasFinancing.toString()}" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/color_divider"
+                    app:layout_constraintTop_toBottomOf="@id/financingTitle" />
+
+                <TextView
+                    android:id="@+id/installmentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Financing:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/warrantyTitle" />
+
+                <TextView
+                    android:id="@+id/installmentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    app:layout_constraintBottom_toBottomOf="@id/installmentTitle"
+                    app:layout_constraintStart_toEndOf="@id/installmentTitle"
+                    app:layout_constraintTop_toTopOf="@id/installmentTitle"
+                    app:money="@{detail.installment.toString()}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</layout>

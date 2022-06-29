@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="make"
+            type="ke.kiura.autocheck.data.models.brands.Make" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:paddingHorizontal="8dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/brandImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:error="@{@drawable/ic_broken}"
+        app:load="@{make.image}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="2dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:text="@{make.name}"
+        app:layout_constraintTop_toBottomOf="@id/brandImage"
+        android:id="@+id/brandName"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

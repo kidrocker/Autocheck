@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+
+      <variable
+          name="detail"
+          type="ke.kiura.autocheck.data.models.detail.Detail" />
+   </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:context=".ui.detail.DetailFragment">
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_left"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.04" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_right"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.96" />
+
+      <ImageView
+          android:id="@+id/banner"
+          android:layout_width="0dp"
+          android:layout_height="200dp"
+          android:scaleType="centerCrop"
+          app:error="@{@drawable/ic_broken}"
+          app:load="@{detail.imageUrl}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:src="@tools:sample/backgrounds/scenic" />
+
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintTop_toTopOf="parent"
+          app:navigationIcon="@drawable/ic_chevron_left"/>
+
+      <TextView
+          android:id="@+id/titleText"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="6dp"
+          android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+          app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+          app:layout_constraintStart_toStartOf="@+id/guideline_left"
+          app:layout_constraintTop_toBottomOf="@+id/banner"
+          app:text="@{detail.carName}" />
+
+      <com.google.android.material.tabs.TabLayout
+          android:id="@+id/tabs"
+          android:layout_width="0dp"
+
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/carModel"
+          app:tabIndicator="@drawable/circular_background" />
+
+      <androidx.viewpager2.widget.ViewPager2
+          android:id="@+id/pager"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tabs" />
+
+      <ProgressBar
+          android:id="@+id/progressBar"
+          style="?android:attr/progressBarStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+          app:layout_constraintStart_toStartOf="@+id/guideline_left"
+          app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+      <TextView
+          android:id="@+id/carModel"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:text="@{detail.model.name}"
+          android:layout_marginTop="6dp"
+          app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+          app:layout_constraintStart_toStartOf="@+id/titleText"
+          app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
